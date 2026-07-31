@@ -1,0 +1,39 @@
+# ============================================================
+#  UE workspace superproject
+#  只跟踪：4 个 submodule 指针 + MonolithSandbox / Q1 的源文件 + 根文档
+#  建立于 2026-08-01（系统重装后迁移到 G:\备份\Documents\GitHub\UE）
+# ============================================================
+
+# ---------- UE 可再生目录（所有项目通用） ----------
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+.vs/
+*.pch
+*.pdb
+*.obj
+*.lib
+*.exp
+*.sln
+*.suo
+
+# ---------- 不纳入本仓库的一次性沙盒 ----------
+# 这些沙盒的结论已全部写入 NiagaraFlocking 5.8/HandoffDocs，
+# 资产本身属于已冻结/已作废的历史轮次，不需要随工作区迁移。
+# 若日后需要复现某一轮，从 HandoffDocs 的报告与 hash 清单重建。
+/AgentAuthoringSandbox/
+/AgentAuthoringSandboxFlockingR2/
+/AgentAuthoringSandboxP5/
+/AgentAuthoringSandboxP5b/
+/AgentAuthoringSandboxP5c/
+/AgentAuthoringSandboxP5d/
+/AgentAuthoringSandboxP5e/
+/AgentAuthoringSandboxP5f/
+/ExitRelayPkg1613/
+/.agents/
+
+# ---------- 编辑器 / 系统噪音 ----------
+Thumbs.db
+Desktop.ini
+.DS_Store

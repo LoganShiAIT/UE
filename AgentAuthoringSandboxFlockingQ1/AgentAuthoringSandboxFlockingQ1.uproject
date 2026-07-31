@@ -1,0 +1,15 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "",
+	"Description": "Isolated Niagara faithful-flocking Qoder-test sandbox (Q1). Uses only the generic Monolith authoring surface; no prior-round, R2, or task-local Flocking toolset.",
+	"AdditionalPluginDirectories": [
+		"../MonolithSandbox/Plugins"
+	],
+	"Plugins": [
+		{
+			"Name": "Monolith",
+			"Enabled": true
+		}
+	]
+}

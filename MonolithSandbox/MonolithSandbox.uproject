@@ -1,0 +1,13 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "",
+	"Description": "Isolated source-index sandbox for Monolith; no production content.",
+	"Plugins": [
+		{
+			"Name": "Monolith",
+			"Enabled": true
+		}
+	]
+}
+

@@ -1,0 +1,12 @@
+[submodule "fishies"]
+	path = fishies
+	url = https://github.com/LoganShiAIT/fishies.git
+[submodule "NiagaraFlocking"]
+	path = NiagaraFlocking
+	url = https://github.com/LoganShiAIT/NiagaraFlocking.git
+[submodule "NiagaraFlocking 5.8"]
+	path = NiagaraFlocking 5.8
+	url = https://github.com/LoganShiAIT/NiagaraFlocking.git
+[submodule "UnrealEngine"]
+	path = UnrealEngine
+	url = https://github.com/LoganShiAIT/UnrealEngine.git
