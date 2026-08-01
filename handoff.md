@@ -21,6 +21,8 @@
 
 **引擎注册表已随重装丢失**（`HKCU\…\Unreal Engine\Builds`、`HKLM\SOFTWARE\EpicGames`、Epic Launcher 均无）。`.uproject` 双击无法解析引擎，必须直接带参启动：
 
+> **2026-08-01 09:59 修正**：`HKCU\Software\Epic Games\Unreal Engine\Builds` 现已有一条 `{D5944C5E-4E7D-15D4-38AD-199DD5EA67C4} → G:/UE_5.8`（`HKLM\SOFTWARE\EpicGames` 仍不存在）。但 `NiagaraFlocking 5.8\NiagaraFlocking.uproject` 要的是 `{2BB79E4F-456A-4A68-FB5C-BD908A7C4590}`，**该 GUID 未在任何位置注册**，所以下面的带参启动方式**仍然是当前有效解法**。
+
 ```
 "G:\UE_5.8\Engine\Binaries\Win64\UnrealEditor.exe" "G:\备份\Documents\GitHub\UE\<项目>\<项目>.uproject"
 ```
@@ -36,6 +38,21 @@
 `HandoffDocs/artifacts/**/test-results/`、`reports/`、`contracts/`、`misc/` 与 `archive/**` 共约 147 个文件仍含旧路径，**这是刻意保留的**：它们记录的是当时实际发生的事，改写等于篡改证据层。只有路由类文件（本文件、`HandoffDocs/handoffs/*.md`）和可执行脚本（`artifacts/**/test-scripts/*`）才应更新。
 
 完整勘察报告：`NiagaraFlocking 5.8\HandoffDocs\artifacts\qoder-test--w-04\reports\20260731-210331-post-reinstall-environment-and-w04-interruption-audit.md`
+
+### 🚚 换机迁移（2026-08-01）——**从另一台机器接手的 Agent 先读这条**
+
+本工作区已完成换机前的完整性核查。**git 侧无工作丢失风险**：superproject `UE`、`NiagaraFlocking 5.8`、`UnrealEngine`、`fishies` 四个仓库本地 HEAD 与远端逐一比对全部一致，主力项目工作区 0 脏文件。
+
+新机落地顺序：
+
+1. `git config --global core.longpaths true`（本仓库历史含长路径，不设会 clone 失败）
+2. `git clone --recurse-submodules https://github.com/LoganShiAIT/UE.git`
+3. 读本文件上方的路径换算规则与两套引擎定位
+4. **读 `NiagaraFlocking 5.8\HandoffDocs\handoffs\workspace-migration-to-new-machine.md`** —— 3 个必坏项的修法、哪些数据 git 永远带不走、逐条落地清单都在那里
+
+三个必坏项摘要：① `.uproject` 的 `EngineAssociation` GUID 未在任何机器注册（改 `"5.8"` 指 Launcher 引擎即可，已验证其自带所需的 `ModelContextProtocol` / `MCPClientToolset`）；② `UnrealEngine` submodule 需 `Setup.bat` + 数小时编译，但它只用于源码核对、可跳过；③ `G:\FlockingC1` 不在任何仓库内且写死绝对路径。
+
+⚠️ **接续 `claude-opus-5-test` 的硬阻塞**：`MonolithSandbox/Plugins/Monolith/Binaries/Win64` 的 20 个 DLL 未跟踪，**必须物理拷贝，重编译会使 hash 偏离 W-03 冻结基线、跨轮对照失效**。
 
 ---
 
